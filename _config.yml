@@ -1,32 +1,38 @@
 # The Site Configuration
 
 # Import the theme
-theme: jekyll-theme-chirpy
+remote_theme: cotes2020/jekyll-theme-chirpy
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-paginate
+  - jekyll-archives
+  - jekyll-sitemap
 
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: en
+lang: my # Myanmar language
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
-timezone:
+timezone: Asia/Yangon
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: Myanmar Agricultural Knowledge Base
 
-tagline: A text-focused Jekyll theme # it will display as the subtitle
+tagline: မြန်မာ့စိုက်ပျိုးရေးဗဟုသုတများ
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  A comprehensive knowledge base for Myanmar agriculture, including crop diseases, pest management, and farming techniques.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: ""
+url: "https://tklwin.github.io"
 
 github:
-  username: github_username # change to your GitHub username
+  username: tklwin # change to your GitHub username
 
 twitter:
   username: twitter_username # change to your Twitter username
@@ -34,12 +40,11 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@domain.com # change to your email address
+  name: Myanmar Agricultural Knowledge Base
+  email: # your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
+    - https://github.com/tklwin
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
@@ -59,7 +64,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: # fill in your Google Analytics ID
+    id: # fill in your Google Analytics ID if needed
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
@@ -88,7 +93,7 @@ pageviews:
 #     light — Use the light color scheme
 #     dark — Use the dark color scheme
 #
-theme_mode: # [light | dark]
+theme_mode: light
 
 # The CDN endpoint for media resources.
 # Notice that once it is assigned, the CDN url
@@ -98,18 +103,18 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: /assets/img/avatar.png
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
-social_preview_image: # string, local or CORS resources
+social_preview_image: /assets/img/social-preview.png
 
 # boolean type, the global switch for TOC in posts.
 toc: true
 
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
-  provider: # [disqus | utterances | giscus]
+  provider: # disabled for now
   # The provider options are as follows:
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
@@ -138,14 +143,13 @@ assets:
     env: # [development | production]
 
 pwa:
-  enabled: true # The option for PWA feature (installable)
+  enabled: true
   cache:
-    enabled: true # The option for PWA offline cache
+    enabled: true
     # Paths defined here will be excluded from the PWA cache.
     # Usually its value is the `baseurl` of another website that
     # shares the same domain name as the current website.
-    deny_paths:
-      # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
+    deny_paths: []
 
 paginate: 10
 
@@ -157,9 +161,8 @@ baseurl: ""
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
   syntax_highlighter: rouge
-  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+  syntax_highlighter_opts:
     css_class: highlight
-    # default_lang: console
     span:
       line_numbers: false
     block:
@@ -173,14 +176,12 @@ collections:
 
 defaults:
   - scope:
-      path: "" # An empty string here means all files in the project
+      path: ""
       type: posts
     values:
       layout: post
-      comments: true # Enable comments in posts.
-      toc: true # Display TOC column in posts.
-      # DO NOT modify the following parameter unless you are confident enough
-      # to update the code of all other post links in this project.
+      comments: false
+      toc: true
       permalink: /posts/:title/
   - scope:
       path: _drafts
@@ -188,7 +189,7 @@ defaults:
       comments: false
   - scope:
       path: ""
-      type: tabs # see `site.collections`
+      type: tabs
     values:
       layout: page
       permalink: /:title/
